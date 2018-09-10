@@ -30,7 +30,10 @@ module.exports.saveResponse = function(req,res){
     id,
     {
       $set:{
-        survey:req.body.survey
+        survey:req.body.survey,
+
+        //calculate score and save to db ??
+        score: 22
       }
     },
     {new: true},
@@ -54,7 +57,7 @@ module.exports.saveResponse = function(req,res){
 
 };
 
-//get User result
+//get User result score
 module.exports.getResult = function(req, res){
   const id=req.userData.userId;
   if (!id) {
@@ -66,11 +69,6 @@ module.exports.getResult = function(req, res){
       .findById(id)
       .exec(function(err, user) {
 
-      //calculation
-       //get response and for each ques & check range
-              user
-
-
 
         res.status(200).json(
 
@@ -79,6 +77,8 @@ module.exports.getResult = function(req, res){
         //status:200}
 
         {
+
+        //check ??
         score:score,
         status:200
         }

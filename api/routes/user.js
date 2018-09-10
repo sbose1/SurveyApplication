@@ -12,8 +12,9 @@ router.post("/login", UserController.user_login);
 // profile
 router.get("/profile",checkAuth, UserProfile.getProfile);
 
-router.get("/profile/result",checkAuth, UserProfile.getResult);
 router.put("/profile/submit",checkAuth,UserProfile.saveResponse);
+router.get("/profile/showresult",checkAuth, UserProfile.getResult);
+
 
 router.put("/profile/edit",checkAuth,UserProfile.editProfile);
 

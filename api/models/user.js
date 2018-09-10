@@ -8,12 +8,12 @@ const userSchema = mongoose.Schema({
     score: {
             type:Number
         },
-    survey[
+    survey: [
                 {
                    type: mongoose.Schema.Types.ObjectId,
                    ref: "Question"
                 }
-             ]
+             ],
     email: { 
         type: String, 
         required: true, 
