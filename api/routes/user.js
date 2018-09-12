@@ -15,6 +15,9 @@ router.get("/profile",checkAuth, UserProfile.getProfile);
 router.put("/profile/submit",checkAuth,UserProfile.saveResponse);
 router.get("/profile/showresult",checkAuth, UserProfile.getResult);
 
+//admin profile: show user list
+router.get("/profile/showusers",checkAuth, UserProfile.getUserList);
+
 
 router.put("/profile/edit",checkAuth,UserProfile.editProfile);
 

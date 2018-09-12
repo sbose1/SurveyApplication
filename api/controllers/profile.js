@@ -33,6 +33,9 @@ module.exports.saveResponse = function(req,res){
         survey:req.body.survey,
 
         //calculate score and save to db ??
+
+
+
         score: 22
       }
     },
@@ -87,6 +90,43 @@ module.exports.getResult = function(req, res){
       });
   }
 };
+
+
+//fetch all user list for admin to see in profile landing page
+module.exports.getUserList = function(req,res){
+  const id=req.userData.userId;
+  User.find(
+    id,
+    {
+      $set:{
+        name:req.body.name,
+        age:req.body.age,
+        weight:req.body.weight,
+        address:req.body.address
+      }
+    },
+    {new: true},
+    function(err,result){
+    if(err){
+      console.log(err);
+      res.status(500).json({
+        error:err,
+        status:500
+      });
+    }else{
+      console.log(result);
+      res.status(200).json(
+    //  message:"Request successful",
+      result
+      //status:200
+      );
+     // console.log(result);
+    }
+    });
+
+};
+
+
 
 
 module.exports.editProfile = function(req,res){
