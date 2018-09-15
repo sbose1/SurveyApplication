@@ -6,6 +6,12 @@ const mongoose = require("mongoose");
 
 
 const userRoutes = require('./api/routes/user');
+//serve landing index.html page:
+app.get('/',function(req,res){
+  res.sendFile(__dirname+'/index.html');
+  //__dirname : It will resolve to your project folder.
+});
+
 
 
 mongoose.connect('mongodb://localhost:27017/test');
