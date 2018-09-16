@@ -26,7 +26,7 @@ exports.user_signup = (req, res, next) => {
               email: req.body.email,
               password: hash,
               name: req.body.name,
-              role:"patient"
+              role:"admin"
             });
             user
               .save()
